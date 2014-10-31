@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="view_users_form_click_and_dial" model="ir.ui.view">
+            <field name="name">res.users.form.click_and_dial</field>
+            <field name="model">res.users</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Access Rights']"
+                       position="after">
+                    <page string="Voip">
+                        <group>
+                            <field name="voip_id_call_gr" select="2"/>
+                            <field name="voip_internal_number"/>
+                            <field name="voip_password" />
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</openerp>
