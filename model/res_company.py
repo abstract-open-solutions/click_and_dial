@@ -18,27 +18,15 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    'name': "Click and dial",
-    'version': "1.0",
-    'author': 'Abstract',
-    'website': 'http://www.abstract.it',
-    'category': '',
-    'description': """Click and dial for openvoip.it
+from openerp import models, fields
 
-This module allow to make a call directly from odoo by clicking
-on 'Dial' button near the telephone field in contact and partner models.
-""",
-    'license': 'AGPL-3',
-    'depends': [
-        'base'
-    ],
-    'data': [
-        'view/res_users.xml',
-        'view/res_partner.xml',
-        'view/res_company.xml',
-        'data/res_company.xml'
-    ],
-    'active': False,
-    'installable': True
-}
+
+class res_company(models.Model):
+    _name = "res.company"
+    _inherit = "res.company"
+
+    voip_url = fields.Char(
+        'Voip url',
+        size=255,
+        required=True
+    )

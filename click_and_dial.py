@@ -75,7 +75,8 @@ def make_call(klass, erp_number):
 
         if not _TEST:
             # TODO: uncomment this
-            # make url configurable
+            # get url from - company - voip_url
+            # https://www.openvoip.it/click_and_dial.php?sender={sender}&dst={dst}&id_call_gr={id_call_gr}&verify={verify}
             # handle exceptions
 
             # url_voip = (
