@@ -13,7 +13,7 @@
                     <page string="Voip">
                         <group>
                             <field name="voip_id_call_gr" select="2"/>
-                            <field name="voip_internal_number"/>
+                            <field name="voip_user_number"/>
                             <field name="voip_password" />
                         </group>
                     </page>
@@ -21,5 +21,21 @@
             </field>
         </record>
 
+        <!-- User prefernces form -->
+        <record id="view_users_form_simple_modif_click_and_dial"
+                model="ir.ui.view">
+            <field name="name">res.users.preferences.form.click_and_dial</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="arch" type="xml">
+                <field name="signature" position="after">
+                    <group string="Voip" colspan="4">
+                        <field name="voip_id_call_gr" select="2"/>
+                        <field name="voip_user_number"/>
+                        <field name="voip_password" />
+                    </group>
+                </field>
+            </field>
+        </record>
     </data>
 </openerp>

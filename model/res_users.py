@@ -30,7 +30,7 @@ class res_users(osv.osv):
         # formerly id_call_gr
         "voip_id_call_gr": fields.char('Id Call Group', size=6),
         # formerly internal_number
-        "voip_internal_number": fields.char('Voip number', size=15),
+        "voip_user_number": fields.char('Voip user number', size=15),
         # formerly secret_key_password
         "voip_password": fields.char('Voip user password', size=64),
     }
