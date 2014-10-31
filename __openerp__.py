@@ -35,10 +35,7 @@ on 'Dial' button near the telephone field in contact and partner models.
     ],
     'data': [
         'view/res_users.xml',
-        # 'data/odoo_reset.xml',
-        # 'data/res_company.xml',
-
-        # 'view/partner_view.xml'
+        'view/res_partner.xml'
     ],
     'active': False,
     'installable': True

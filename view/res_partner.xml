@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <record model="ir.ui.view"
+            id="view_partner_form_click_and_dial">
+        <field name="name">partner.form.click_and_dial</field>
+        <field name="model">res.partner</field>
+        <field name="type">form</field>
+        <field name="inherit_id"
+                   ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name="phone" position="replace">
+                <label string="Phone" for="phone"/>
+                <group>
+                    <field name="phone" nolabel="1" />
+                    <button name="action_dial_phone"
+                            class="oe_inline oe_read_only"
+                            attrs="{'invisible': [('phone', '=', False)]}"
+                            string="Dial" type="object" />
+                </group>
+            </field>
+
+            <field name="mobile" position="replace">
+                <label string="Mobile" for="mobile"/>
+                <group>
+                    <field name="mobile" nolabel="1" />
+                    <button name="action_dial_mobile"
+                            class="oe_inline oe_read_only"
+                            attrs="{'invisible': [('mobile', '=', False)]}"
+                            string="Dial" type="object" />
+                </group>
+            </field>
+
+        </field>
+    </record>
+
+    </data>
+</openerp>

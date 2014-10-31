@@ -18,19 +18,22 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp.osv import fields, osv
+from openerp import models, api
+from ..click_and_dial import make_call
 
 
-# Specific paremeters for each user
-class res_users(osv.osv):
-    _name = "res.users"
-    _inherit = "res.users"
+class res_partner(models.Model):
+    _name = "res.partner"
+    _inherit = "res.partner"
 
-    _columns = {
-        # formerly id_call_gr
-        "voip_id_call_gr": fields.char('Call Group Id', size=6),
-        # formerly internal_number
-        "voip_user_number": fields.char('Voip user number', size=15),
-        # formerly secret_key_password
-        "voip_password": fields.char('Voip user password', size=64),
-    }
+    @api.one
+    def action_dial_phone(self, context):
+        '''Function called by the button 'Dial' next to the 'phone' field
+        in the partner address view'''
+        make_call(self, self.phone)
+
+    @api.one
+    def action_dial_mobile(self, context):
+        '''Function called by the button 'Dial' next to the 'mobile' field
+        in the partner address view'''
+        make_call(self, self.mobile)
