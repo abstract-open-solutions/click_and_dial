@@ -30,3 +30,8 @@ class res_company(models.Model):
         size=255,
         required=True
     )
+
+    voip_debug = fields.Boolean(
+        'Voip debug',
+        default=False
+    )

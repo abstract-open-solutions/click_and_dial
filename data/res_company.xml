@@ -2,7 +2,7 @@
 <openerp>
     <data>
         <record id="base.main_company" model="res.company">
-            <field name="voip_url">https://www.openvoip.it/click_and_dial.php?sender={sender}&dst={dst}&id_call_gr={id_call_gr}&verify={verify}</field>
+            <field name="voip_url"></field>
         </record>
     </data>
 </openerp>

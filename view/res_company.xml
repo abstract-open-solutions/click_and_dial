@@ -11,6 +11,9 @@
                         <field name="voip_url"
                                help='Set the voip url base link to connect to SIP provider'
                             />
+                        <field name="voip_debug"
+                               help='check this option to debug click and dial functionality'
+                            />
                     </group>
                 </field>
             </field>

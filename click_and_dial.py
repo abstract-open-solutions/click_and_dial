@@ -29,7 +29,6 @@ from openerp import _
 
 
 logger = logging.getLogger(__name__)
-_TEST = True
 
 
 def reformat_number(number):
@@ -73,18 +72,24 @@ def make_call(klass, erp_number):
 
         verify = md5.new(sha.new(verify).hexdigest()).hexdigest()
 
-        if not _TEST:
-            # TODO: uncomment this
-            # get url from - company - voip_url
-            # https://www.openvoip.it/click_and_dial.php?sender={sender}&dst={dst}&id_call_gr={id_call_gr}&verify={verify}
-            # handle exceptions
+        company = klass.env.user.company_id
 
-            # url_voip = (
-            #     'https://www.openvoip.it/click_and_dial.php?'
-            #     'sender=%s&dst=%s&id_call_gr=%s&verify=%s'
-            # ) % (sender, dst, id_call_gr, verify)
+        if not company.voip_url:
+            raise exceptions.Warning(
+                _(u"Call failed, your company doesn't have a valid "
+                  u"Voip url. \n"
+                  u"Please, set a Voip url in company model")
+            )
+        voip_url = company.voip_url.format(
+            sender=sender,
+            dst=dst,
+            id_call_gr=id_call_gr,
+            verify=verify
+        )
 
-            # response = urllib2.urlopen(url_voip).read()
+        if not company.voip_debug:
+            # calling
+            response = urllib2.urlopen(voip_url).read()
 
             logger.debug(
                 "Click and Dial response %s on url %s" % (response, url_voip)
@@ -92,6 +97,9 @@ def make_call(klass, erp_number):
         else:
             logger.warning(
                 "User {} calling {}".format(sender, erp_number)
+            )
+            logger.warning(
+                "Voip url {}".format(voip_url)
             )
 
     return True
