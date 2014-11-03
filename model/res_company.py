@@ -18,7 +18,7 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-from openerp import models, fields
+from openerp import models, fields, api
 
 
 class res_company(models.Model):
@@ -35,3 +35,15 @@ class res_company(models.Model):
         'Voip debug',
         default=False
     )
+
+    @api.multi
+    def set_default_voip_url(self, context):
+        voip_url = (
+            'https://www.openvoip.it/click_and_dial.php?'
+            'sender={sender}&dst={dst}&id_call_gr={id_call_gr}'
+            '&verify={verify}'
+        )
+
+        for company in self:
+            if not company.voip_url:
+                company.write({'voip_url': voip_url})
