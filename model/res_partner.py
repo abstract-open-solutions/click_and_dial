@@ -19,7 +19,7 @@
 #
 ##############################################################################
 from openerp import models, api
-from ..click_and_dial import make_call
+from ..click2dial import make_call
 
 
 class res_partner(models.Model):

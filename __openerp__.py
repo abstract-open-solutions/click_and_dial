@@ -19,7 +19,7 @@
 #
 ##############################################################################
 {
-    'name': "Click and dial",
+    'name': "Openvoip click2dial",
     'version': "1.0",
     'author': 'Abstract',
     'website': 'http://www.abstract.it',

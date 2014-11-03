@@ -2,8 +2,8 @@
 <openerp>
     <data>
 
-        <record id="view_users_form_click_and_dial" model="ir.ui.view">
-            <field name="name">res.users.form.click_and_dial</field>
+        <record id="view_users_form_openvoip_click2dial" model="ir.ui.view">
+            <field name="name">res.users.form.openvoip_click2dial</field>
             <field name="model">res.users</field>
             <field name="type">form</field>
             <field name="inherit_id" ref="base.view_users_form"/>
@@ -22,9 +22,9 @@
         </record>
 
         <!-- User prefernces form -->
-        <record id="view_users_form_simple_modif_click_and_dial"
+        <record id="view_users_form_simple_modif_openvoip_click2dial"
                 model="ir.ui.view">
-            <field name="name">res.users.preferences.form.click_and_dial</field>
+            <field name="name">res.users.preferences.form.openvoip_click2dial</field>
             <field name="model">res.users</field>
             <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
             <field name="arch" type="xml">

@@ -3,8 +3,8 @@
     <data>
 
     <record model="ir.ui.view"
-            id="view_partner_form_click_and_dial">
-        <field name="name">partner.form.click_and_dial</field>
+            id="view_partner_form_openvoip_click2dial">
+        <field name="name">partner.form.openvoip_click2dial</field>
         <field name="model">res.partner</field>
         <field name="type">form</field>
         <field name="inherit_id"
