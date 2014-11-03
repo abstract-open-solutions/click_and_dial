@@ -28,22 +28,15 @@ class res_company(models.Model):
     voip_url = fields.Char(
         'Voip url',
         size=255,
-        required=True
+        required=True,
+        default=(
+            'https://www.openvoip.it/click_and_dial.php?'
+            'sender={sender}&dst={dst}&id_call_gr={id_call_gr}'
+            '&verify={verify}'
+        )
     )
 
     voip_debug = fields.Boolean(
         'Voip debug',
         default=False
     )
-
-    @api.multi
-    def set_default_voip_url(self, context):
-        voip_url = (
-            'https://www.openvoip.it/click_and_dial.php?'
-            'sender={sender}&dst={dst}&id_call_gr={id_call_gr}'
-            '&verify={verify}'
-        )
-
-        for company in self:
-            if not company.voip_url:
-                company.write({'voip_url': voip_url})
