@@ -80,6 +80,7 @@ def make_call(klass, erp_number):
                   u"Voip url. \n"
                   u"Please, set a Voip url in company model")
             )
+
         voip_url = company.voip_url.format(
             sender=sender,
             dst=dst,
@@ -92,12 +93,13 @@ def make_call(klass, erp_number):
             response = urllib2.urlopen(voip_url).read()
 
             logger.debug(
-                "Click and Dial response %s on url %s" % (response, url_voip)
+                "Click and Dial response %s on url %s" % (response, voip_url)
             )
         else:
             logger.warning(
                 "User {} calling {}".format(sender, erp_number)
             )
+
             logger.warning(
                 "Voip url {}".format(voip_url)
             )
