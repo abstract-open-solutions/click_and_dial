@@ -1,5 +1,5 @@
-CLick and Dial
-==============
+OpenVoip Click and Dial
+=======================
 
 This package allow to call a partner or a contact by Openvoip provider.
 
